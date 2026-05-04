@@ -9,7 +9,7 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [react(), tailwindcss()],
 
-    base: "/NewGie/", // 👈 CLAVE para GitHub Pages
+    base: "/NewGie/", // 🔥 ESTO SOLUCIONA EL 404
 
     define: {
       "process.env.GEMINI_API_KEY": JSON.stringify(env.GEMINI_API_KEY),

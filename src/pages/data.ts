@@ -16,10 +16,10 @@ export const PROJECTS_DATA = [
     story:
       "Comenzamos con planos claros y un cronograma realista. La construcción requería precisión absoluta...",
     gallery: [
-      "/img/DOBLE01.jpg",
-      "/img/DOBLE02.jpg",
-      "/img/DOBLE03.jpg",
-      "/img/DOBLE04.jpg",
+      "/NewGie/img/DOBLE01.jpg",
+      "/NewGie/img/DOBLE02.jpg",
+      "/NewGie/img/DOBLE03.jpg",
+      "/NewGie/img/DOBLE04.jpg",
     ],
   },
   {
@@ -28,7 +28,7 @@ export const PROJECTS_DATA = [
     subtitle: "Reinvención de espacios para el turismo de lujo.",
     desc: "Transformación integral de espacios comerciales.",
     tags: ["Remodelación", "Hotelería", "Mantenimiento"],
-    image: "/img/SIMPLE01.jpg",
+    image: "/NewGie/img/SIMPLE01.jpg",
     details: {
       servicios: "Remodelación Interior",
       duración: "4 meses",
@@ -37,7 +37,7 @@ export const PROJECTS_DATA = [
     },
     story:
       "El desafío principal fue mantener la esencia histórica del edificio mientras integrábamos tecnología moderna...",
-    gallery: ["/img/SIMPLE01.jpg", "/img/SIMPLE02.jpg"],
+    gallery: ["/NewGie/img/SIMPLE01.jpg", "/img/SIMPLE02.jpg"],
   },
   {
     id: "p3",
@@ -56,8 +56,8 @@ export const PROJECTS_DATA = [
     story:
       "El desafío principal fue mantener la esencia histórica del edificio mientras integrábamos tecnología moderna...",
     gallery: [
-      "/img/frente.jpeg",
-      "/img/interior.jpeg",
+      "/NewGie/img/frente.jpeg",
+      "/NewGie/img/interior.jpeg",
       "https://haemprendimientos.com.ar/wp-content/uploads/2019/03/Gran-Atlantida-de-HA-Emprendimientos-6.webp",
     ],
   },
