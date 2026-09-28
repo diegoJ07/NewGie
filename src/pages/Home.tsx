@@ -8,16 +8,39 @@ import {
   Star,
   Quote,
   ChevronDown,
+  PenTool,
 } from "lucide-react";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [openFaq, setOpenFaq] = useState(null);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const location = useLocation();
+
+  // Permite que /#faqs haga scroll automáticamente hasta la sección FAQ
+  useEffect(() => {
+    if (location.hash === "#faqs") {
+      const timer = setTimeout(() => {
+        const faqSection = document.getElementById("faqs");
+
+        if (faqSection) {
+          faqSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      }, 100);
+
+      return () => clearTimeout(timer);
+    }
+  }, [location.hash]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 },
+    },
   };
 
   const itemVariants = {
@@ -50,7 +73,7 @@ export default function Home() {
 
   return (
     <div className="overflow-hidden">
-      {/* Hero Section */}
+      {/* HERO */}
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-[#E6FAFC]">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -61,20 +84,24 @@ export default function Home() {
             >
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-display font-bold leading-[1.1] mb-6 md:mb-8 text-secondary">
                 DEL <span className="text-primary">DISEÑO</span> A LA REALIDAD
-                ENFOCADOS EN <span className="italic">CADA DETALLE</span>
+                ENFOCADOS EN <span className="text-primary">CADA DETALLE</span>
               </h1>
+
               <p className="text-slate-600 text-base md:text-lg mb-8 md:mb-10 max-w-xl leading-relaxed">
                 En NewGie transformamos visiones arquitectónicas en estructuras
                 de alto rendimiento. Construcción moderna enfocada en la
                 excelencia y el diseño detallado.
               </p>
+
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   to="/projects"
                   className="btn-primary gap-2 w-full sm:w-auto"
                 >
-                  Proyectos <ArrowRight size={18} />
+                  Proyectos
+                  <ArrowRight size={18} />
                 </Link>
+
                 <Link to="/contact" className="btn-outline w-full sm:w-auto">
                   Contacto
                 </Link>
@@ -88,27 +115,30 @@ export default function Home() {
               className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3] lg:aspect-auto"
             >
               <img
-                src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1470&auto=format&fit=crop"
+                src="/NewGie/img/img-principal.png"
                 alt="Construction team"
                 className="w-full h-full object-cover"
               />
+
               <div className="absolute inset-0 bg-gradient-to-tr from-secondary/40 to-transparent"></div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Advantages Section */}
+      {/* VENTAJAS */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-20">
+          <div className="text-left mb-20">
             <span className="text-primary font-medium tracking-widest text-xs uppercase mb-3 block">
               Ventajas
             </span>
+
             <h2 className="text-4xl lg:text-5xl font-display font-bold mb-6">
               Por qué elegirnos
             </h2>
-            <p className="text-slate-500 max-w-2xl mx-auto">
+
+            <p className="text-slate-500 max-w-2xl text-left">
               Elaboramos documentación técnica con nuestros especialistas para
               obtener un mejor resultado en cada tarea.
             </p>
@@ -131,7 +161,7 @@ export default function Home() {
               },
               {
                 title: "Cumplimiento Garantizado",
-                desc: "Consideramos fundamental pactar un control de calidad antes de la entrega para mayor tranquilidad del cliente",
+                desc: "Consideramos fundamental pactar un control de calidad antes de la entrega para mayor tranquilidad del cliente.",
                 icon: <CheckCircle2 className="text-primary" size={32} />,
                 image:
                   "https://images.unsplash.com/photo-1503387762-592dea58ef23?q=80&w=640&auto=format&fit=crop",
@@ -151,10 +181,13 @@ export default function Home() {
               >
                 <div className="bg-slate-50 rounded-3xl md:rounded-[2.5rem] p-6 md:p-10 h-full border border-slate-100 group-hover:border-primary/20 transition-all hover:shadow-xl">
                   <div className="mb-6">{card.icon}</div>
+
                   <h3 className="text-xl font-bold mb-4">{card.title}</h3>
+
                   <p className="text-slate-500 text-sm mb-10 leading-relaxed">
                     {card.desc}
                   </p>
+
                   <div className="rounded-2xl overflow-hidden h-48">
                     <img
                       src={card.image}
@@ -169,17 +202,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* SERVICIOS */}
       <section className="py-24 bg-slate-50">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-20">
+          <div className="text-left mb-20">
             <span className="text-primary font-medium tracking-widest text-xs uppercase mb-3 block">
               Servicios
             </span>
+
             <h2 className="text-4xl lg:text-5xl font-display font-bold mb-6">
               Lo que hacemos en cada proyecto
             </h2>
-            <p className="text-slate-500 max-w-2xl mx-auto">
+
+            <p className="text-slate-500 max-w-2xl text-left">
               Desde la concepción hasta la entrega final, ejecutamos trabajos
               que perduran. Cada servicio responde a necesidades reales de
               nuestros clientes.
@@ -209,10 +244,14 @@ export default function Home() {
                 desc: "Equipos especializados que cuidan y preservan lo que hemos construido.",
               },
             ].map((service, idx) => (
-              <div key={idx} className="text-center flex flex-col items-center">
-                <div className="text-secondary mb-6">{service.icon}</div>
+              <div key={idx} className="flex flex-col h-full items-start">
+                <div className="h-16 flex items-center">
+                  <div className="text-secondary">{service.icon}</div>
+                </div>
+
                 <h4 className="text-lg font-bold mb-4">{service.title}</h4>
-                <p className="text-slate-500 text-sm leading-relaxed">
+
+                <p className="text-slate-500 text-sm leading-relaxed text-left">
                   {service.desc}
                 </p>
               </div>
@@ -221,7 +260,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats Section */}
+      {/* STATS */}
       <section className="py-32 bg-white relative">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
@@ -229,29 +268,34 @@ export default function Home() {
               <h2 className="text-4xl lg:text-5xl font-display font-bold mb-8">
                 Nuestros números hablan de excelencia
               </h2>
+
               <p className="text-slate-500 mb-12 max-w-lg">
                 NewGie es sinónimo de rigor técnico. Cada proyecto es una pieza
                 de ingeniería única ejecutada con los más altos estándares del
                 mercado.
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 md:gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
                 <div className="bg-slate-50 p-6 md:p-10 rounded-3xl md:rounded-[2.5rem] text-center">
                   <div className="text-4xl md:text-6xl font-display font-bold text-secondary mb-2">
                     12
                   </div>
+
                   <div className="text-[10px] md:text-sm text-slate-500 uppercase tracking-wider">
                     Proyectos completados
                   </div>
                 </div>
+
                 <div className="bg-slate-50 p-6 md:p-10 rounded-3xl md:rounded-[2.5rem] text-center">
                   <div className="text-4xl md:text-6xl font-display font-bold text-secondary mb-2">
                     2
                   </div>
+
                   <div className="text-[10px] md:text-sm text-slate-500 uppercase tracking-wider">
                     Años en el mercado
                   </div>
                 </div>
+
                 <div className="col-span-1 sm:col-span-2 bg-slate-50 p-6 md:p-10 rounded-3xl md:rounded-[2.5rem] flex flex-col md:flex-row items-center justify-between gap-6">
                   <div className="flex -space-x-3">
                     {[1, 2, 3, 4].map((i) => (
@@ -266,10 +310,12 @@ export default function Home() {
                       </div>
                     ))}
                   </div>
-                  <div className="text-center md:text-right">
+
+                  <div className="text-center">
                     <div className="text-3xl md:text-4xl font-display font-bold text-secondary">
                       98
                     </div>
+
                     <div className="text-[10px] md:text-xs text-slate-500 uppercase tracking-wider">
                       Clientes satisfechos
                     </div>
@@ -286,11 +332,13 @@ export default function Home() {
                   className="w-full h-full object-cover"
                 />
               </div>
+
               <div className="absolute -bottom-10 -right-10 bg-primary p-12 rounded-[2.5rem] hidden md:block">
                 <Quote
                   className="text-white opacity-20 absolute top-4 left-4"
                   size={40}
                 />
+
                 <p className="text-white font-medium text-lg italic max-w-[200px]">
                   "La calidad no es un acto, es un hábito."
                 </p>
@@ -300,16 +348,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Portfolio Preview */}
+      {/* PORTFOLIO */}
       <section className="py-24 bg-slate-50">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
+          <div className="text-left mb-16">
             <span className="text-primary font-medium tracking-widest text-xs uppercase mb-3 block">
               Obras
             </span>
+
             <h2 className="text-4xl font-display font-bold mb-6">
               Proyectos en marcha
             </h2>
+
             <p className="text-slate-500">
               Cada trabajo refleja nuestro compromiso con la calidad.
             </p>
@@ -342,6 +392,7 @@ export default function Home() {
                     alt={project.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
+
                   <div className="absolute top-6 left-6 flex gap-2">
                     {project.tags.map((tag) => (
                       <span
@@ -353,16 +404,19 @@ export default function Home() {
                     ))}
                   </div>
                 </div>
+
                 <div className="p-10">
                   <h3 className="text-2xl font-bold mb-4">{project.title}</h3>
+
                   <p className="text-slate-500 text-sm mb-8 leading-relaxed">
                     {project.desc}
                   </p>
+
                   <Link
                     to={`/projects/${idx}`}
                     className="text-secondary font-bold text-sm flex items-center gap-2 group-hover:text-primary transition-colors"
                   >
-                    Ver proyecto{" "}
+                    Ver proyecto
                     <ArrowRight
                       size={16}
                       className="group-hover:translate-x-1 transition-transform"
@@ -384,13 +438,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* TESTIMONIALS */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-20">
+          <div className="text-left mb-20">
             <h2 className="text-4xl font-display font-bold mb-4">
               Lo que dicen
             </h2>
+
             <p className="text-slate-500">
               Clientes que confían en nuestro trabajo.
             </p>
@@ -430,13 +485,16 @@ export default function Home() {
                     />
                   ))}
                 </div>
+
                 <p className="text-slate-600 mb-8 italic">"{t.text}"</p>
+
                 <div className="flex items-center gap-4">
                   <img
                     src={t.avatar}
                     alt={t.author}
                     className="w-12 h-12 rounded-full"
                   />
+
                   <div>
                     <div className="font-bold text-sm">{t.author}</div>
                     <div className="text-slate-400 text-xs">{t.role}</div>
@@ -448,17 +506,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FAQS Section */}
-      <section className="py-24 bg-slate-50">
+      {/* FAQ */}
+      <section id="faqs" className="py-24 bg-slate-50 scroll-mt-20">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-16">
+            <div className="text-left mb-16">
               <span className="text-primary font-medium tracking-widest text-xs uppercase mb-3 block">
                 FAQ
               </span>
+
               <h2 className="text-4xl font-display font-bold mb-6">
                 Preguntas Frecuentes
               </h2>
+
               <p className="text-slate-500">
                 Resolvemos tus dudas sobre cómo trabajamos en NewGie.
               </p>
@@ -471,12 +531,14 @@ export default function Home() {
                   className="bg-white rounded-3xl border border-slate-100 overflow-hidden"
                 >
                   <button
+                    type="button"
                     onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
                     className="w-full px-8 py-6 flex items-center justify-between text-left transition-colors hover:bg-slate-50"
                   >
                     <span className="font-bold text-secondary">
                       {faq.question}
                     </span>
+
                     <ChevronDown
                       size={20}
                       className={`text-primary transition-transform duration-300 ${
@@ -484,13 +546,17 @@ export default function Home() {
                       }`}
                     />
                   </button>
-                  <AnimatePresence>
+
+                  <AnimatePresence initial={false}>
                     {openFaq === idx && (
                       <motion.div
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        transition={{
+                          duration: 0.3,
+                          ease: "easeInOut",
+                        }}
                       >
                         <div className="px-8 pb-8 text-slate-500 text-sm leading-relaxed border-t border-slate-50 pt-4">
                           {faq.answer}
@@ -505,20 +571,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* CTA */}
       <section className="py-24 bg-slate-50">
         <div className="container mx-auto px-6">
-          <div className="bg-slate-50 text-center">
-            {/* Decorative element */}
+          <div className="relative bg-slate-50 text-center overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full -mr-32 -mt-32 blur-3xl"></div>
 
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-#000">
+            <h2 className="relative z-10 text-4xl md:text-5xl font-display font-bold mb-6 text-black text-left">
               Hablemos de tu proyecto
             </h2>
-            <p className="text-#000 mb-12 max-w-xl mx-auto text-lg leading-relaxed">
+
+            <p className="relative z-10 text-black mb-12 max-w-xl text-lg leading-relaxed text-left mx-auto">
               Tenemos experiencia en lo que hacemos. Cuéntanos qué necesitas y
               construyamos algo extraordinario.
             </p>
+
             <div className="flex flex-wrap justify-center gap-4 relative z-10">
               <Link to="/contact" className="btn-primary px-10">
                 Cotizar
@@ -528,28 +595,5 @@ export default function Home() {
         </div>
       </section>
     </div>
-  );
-}
-
-// Required icons for the page
-function PenTool(props: any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="m12 19 7-7 3 3-7 7-3-3Z" />
-      <path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5Z" />
-      <path d="m2 2 20 20" />
-      <path d="m11 11 5 5" />
-    </svg>
   );
 }

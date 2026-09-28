@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom";
 import {
-  Facebook,
+  // Facebook,
   Instagram,
-  Twitter,
   Linkedin,
-  Youtube,
   Mail,
 } from "lucide-react";
 
@@ -16,6 +14,21 @@ const servicios = [
   "Diseño",
   "Mantenimiento",
   "Cuadrillas",
+];
+
+const redes = [
+  // { name: "Facebook", icon: Facebook, url: "#" },
+  {
+    name: "Instagram",
+    icon: Instagram,
+    url: "https://www.instagram.com/new.gie/",
+  },
+  {
+    name: "LinkedIn",
+    icon: Linkedin,
+    url: "https://www.linkedin.com/in/newgie-construcciones-318b003b2/",
+  },
+  { name: "Mail", icon: Mail, url: "#" },
 ];
 
 const crearLinkWhatsApp = (servicio: string) => {
@@ -105,18 +118,20 @@ export default function Footer() {
           {/* Social */}
           <div>
             <h4 className="text-lg font-bold mb-6">Síguenos</h4>
+
             <div className="flex flex-wrap gap-4">
-              {[Facebook, Instagram, Twitter, Linkedin, Youtube].map(
-                (Icon, i) => (
-                  <a
-                    key={i}
-                    href="#"
-                    className="w-10 h-10 rounded-full border border-slate-800 flex items-center justify-center hover:bg-primary hover:border-primary transition-all text-slate-400 hover:text-white"
-                  >
-                    <Icon size={18} />
-                  </a>
-                ),
-              )}
+              {redes.map(({ name, icon: Icon, url }) => (
+                <a
+                  key={name}
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={name}
+                  className="w-10 h-10 rounded-full border border-slate-800 flex items-center justify-center hover:bg-primary hover:border-primary transition-all text-slate-400 hover:text-white"
+                >
+                  <Icon size={18} />
+                </a>
+              ))}
             </div>
           </div>
         </div>

@@ -1,33 +1,43 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import WhatsAppButton from './components/WhatsAppButton';
-import Home from './pages/Home';
-import About from './pages/About';
-import Projects from './pages/Projects';
-import Contact from './pages/Contact';
-import ProjectDetail from './pages/ProjectDetail';
-import { motion, AnimatePresence } from 'motion/react';
+import {
+  HashRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import WhatsAppButton from "./components/WhatsAppButton";
+import FaqButton from "./components/FaqButton";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Projects from "./pages/Projects";
+import Contact from "./pages/Contact";
+import UnderConstruction from "./pages/UnderConstruction";
+import ProjectDetail from "./pages/ProjectDetail";
 
 export default function App() {
   return (
     <Router>
-      <div className="min-h-screen flex flex-col">
+      <div className="min-h-screen flex flex-col w-full overflow-x-hidden relative">
         <Navbar />
-        <main className="flex-grow">
+        <main className="flex-grow w-full">
           <Routes>
+            {/* Con HashRouter, la raíz siempre será "/" después del # */}
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/projects/:id" element={<ProjectDetail />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/company" element={<About />} />
+            <Route path="/test" element={<UnderConstruction />} />
+
+            {/* Redirección automática si se pierde la ruta */}
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
         <WhatsAppButton />
+        <FaqButton />
         <Footer />
       </div>
     </Router>
   );
 }
-

@@ -34,11 +34,11 @@ export default function About() {
     <div className="pt-32 pb-20 overflow-hidden">
       {/* Introduction */}
       <section className="container mx-auto px-6 mb-20 md:mb-32 bg-">
-        <div className="text-center mb-12 md:mb-20">
+        <div className="text-left mb-12 md:mb-20">
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-display font-bold mb-6 md:mb-8">
             Quiénes somos
           </h1>
-          <p className="text-slate-500 text-base md:text-lg max-w-2xl mx-auto leading-relaxed italic">
+          <p className="text-slate-500 text-base md:text-lg max-w-2xl leading-relaxed italic">
             Una constructora nacida del compromiso de entregar obras que
             perduran en el tiempo.
           </p>
@@ -99,9 +99,6 @@ export default function About() {
                 Estamos orgullosos de nuestro equipo multidisciplinario.
               </p>
             </div>
-            <Link to="/contact" className="btn-outline w-full md:w-auto">
-              Súmate a nosotros
-            </Link>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
@@ -141,6 +138,16 @@ export default function About() {
                 <p className="text-slate-400 text-sm">{member.role}</p>
               </motion.div>
             ))}
+          </div>
+          <div className="flex justify-center">
+            <Link
+              to="https://www.linkedin.com/in/newgie-construcciones-318b003b2/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline w-full md:w-auto mt-12 flex items-center justify-center gap-2"
+            >
+              Súmate a nosotros
+            </Link>
           </div>
         </div>
       </section>

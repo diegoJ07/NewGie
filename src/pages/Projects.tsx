@@ -2,7 +2,6 @@ import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowRight, Search } from "lucide-react";
 import { Link } from "react-router-dom";
-// Importamos el array de datos desde tu nuevo archivo
 import { PROJECTS_DATA } from "./data";
 
 export default function Projects() {
@@ -20,16 +19,22 @@ export default function Projects() {
     });
   }, [filter, searchQuery]);
 
-  const categories = ["Todos", "Residencial", "Comercial", "Remodelación"];
+  const categories = [
+    "Todos",
+    "Remodelación",
+    "Seguridad",
+    "Instalación eléctrica",
+    "Emergencias",
+  ];
 
   return (
     <div className="pt-32 pb-20 overflow-hidden">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-20">
+        <div className="text-left mb-20">
           <h1 className="text-5xl md:text-7xl font-display font-bold mb-8">
             Nuestros proyectos
           </h1>
-          <p className="text-slate-500 text-lg max-w-2xl mx-auto italic">
+          <p className="text-slate-500 text-lg max-w-2xl italic">
             Trabajos realizados con precisión y dedicación en cada detalle
             constructivo.
           </p>
