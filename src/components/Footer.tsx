@@ -1,12 +1,15 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   // Facebook,
   Instagram,
   Linkedin,
   Mail,
+  Loader2,
+  CheckCircle2,
 } from "lucide-react";
 
-const telefono = "5493512902552";
+const telefono = "+549221438-3512";
 
 const servicios = [
   "Construcción",
@@ -28,7 +31,7 @@ const redes = [
     icon: Linkedin,
     url: "https://www.linkedin.com/in/newgie-construcciones-318b003b2/",
   },
-  { name: "Mail", icon: Mail, url: "newgieinstalaciones@gmail.com" },
+  { name: "Mail", icon: Mail, url: "mailto:newgieinstalaciones@gmail.com" },
 ];
 
 const crearLinkWhatsApp = (servicio: string) => {
@@ -36,8 +39,42 @@ const crearLinkWhatsApp = (servicio: string) => {
   return `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
 };
 
+const SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbxahi4ZSGAVyysy7uSUCq-I9fqivc3WWNMIo6oMfl_3cDtYfnQSQP6feivYl-zN5k_A/exec";
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [subscribed, setSubscribed] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+
+    setLoading(true);
+    setError(null);
+
+    const formData = new FormData();
+    formData.append("email", email);
+
+    try {
+      await fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        body: formData,
+      });
+
+      setSubscribed(true);
+      setEmail("");
+    } catch (err) {
+      setError("No pudimos procesar tu suscripción. Intenta nuevamente.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <footer className="bg-slate-950 text-white pt-20 pb-10">
@@ -51,16 +88,38 @@ export default function Footer() {
             <p className="text-slate-400 text-sm mb-6 leading-relaxed">
               Recibe noticias sobre nuestros proyectos y servicios.
             </p>
-            <div className="flex gap-2 max-w-sm">
-              <input
-                type="email"
-                placeholder="Tu correo"
-                className="bg-slate-900 border border-slate-800 rounded-lg px-4 py-2.5 text-sm w-full focus:outline-none focus:ring-1 focus:ring-primary"
-              />
-              <button className="bg-primary hover:bg-primary-dark px-4 py-2.5 rounded-lg text-sm font-bold transition-colors shrink-0">
-                OK
-              </button>
-            </div>
+
+            {subscribed ? (
+              <div className="flex items-center gap-2 text-emerald-400 text-sm bg-slate-900 border border-slate-800 p-3 rounded-lg">
+                <CheckCircle2 size={18} className="shrink-0" />
+                <span>¡Gracias por suscribirte a NewGie!</span>
+              </div>
+            ) : (
+              <form onSubmit={handleSubscribe} className="space-y-2 max-w-sm">
+                <div className="flex gap-2">
+                  <input
+                    type="email"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Tu correo"
+                    className="bg-slate-900 border border-slate-800 rounded-lg px-4 py-2.5 text-sm w-full focus:outline-none focus:ring-1 focus:ring-primary"
+                  />
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="bg-primary hover:bg-primary-dark px-4 py-2.5 rounded-lg text-sm font-bold transition-colors shrink-0 flex items-center justify-center min-w-[52px] disabled:opacity-50 cursor-pointer"
+                  >
+                    {loading ? (
+                      <Loader2 size={16} className="animate-spin" />
+                    ) : (
+                      "OK"
+                    )}
+                  </button>
+                </div>
+                {error && <p className="text-xs text-red-400">{error}</p>}
+              </form>
+            )}
           </div>
 
           {/* Navigation */}
@@ -100,20 +159,23 @@ export default function Footer() {
           </div>
 
           {/* Services */}
-          <ul className="space-y-4 text-slate-400 text-sm">
-            {servicios.map((servicio) => (
-              <li key={servicio}>
-                <a
-                  href={crearLinkWhatsApp(servicio)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-primary transition-colors"
-                >
-                  {servicio}
-                </a>
-              </li>
-            ))}
-          </ul>
+          <div>
+            <h4 className="text-lg font-bold mb-6">Servicios</h4>
+            <ul className="space-y-4 text-slate-400 text-sm">
+              {servicios.map((servicio) => (
+                <li key={servicio}>
+                  <a
+                    href={crearLinkWhatsApp(servicio)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-primary transition-colors"
+                  >
+                    {servicio}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
 
           {/* Social */}
           <div>
@@ -139,15 +201,12 @@ export default function Footer() {
         <div className="border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
           <p>© {currentYear} NewGie. Todos los derechos reservados.</p>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-slate-300">
+            <Link to="/privacy-policy" className="hover:text-slate-300">
               Política de privacidad
-            </a>
-            <a href="#" className="hover:text-slate-300">
+            </Link>
+            <Link to="/terms" className="hover:text-slate-300">
               Términos de servicio
-            </a>
-            <a href="#" className="hover:text-slate-300">
-              Configuración de cookies
-            </a>
+            </Link>
           </div>
         </div>
       </div>

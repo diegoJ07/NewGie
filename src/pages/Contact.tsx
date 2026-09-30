@@ -1,13 +1,41 @@
 import { motion } from "motion/react";
 import React, { useState } from "react";
-import { Mail, Phone, MapPin, Send, CheckCircle2 } from "lucide-react";
+import { Mail, Phone, MapPin, Send, CheckCircle2, Loader2 } from "lucide-react";
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError(null);
+
+    const formData = new FormData(e.currentTarget);
+    formData.append("access_key", "LA_NUEVA_CLAVE_DEL_CLIENTE");
+    formData.append("subject", "Nueva consulta web - NewGie");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setSubmitted(true);
+      } else {
+        setError(
+          data.message || "Error al procesar el mensaje. Intenta nuevamente.",
+        );
+      }
+    } catch (err: any) {
+      setError("Error de red. Verifica tu conexión o intenta más tarde.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -41,7 +69,7 @@ export default function Contact() {
 
               <div className="space-y-6">
                 <a
-                  href="mailto:info@newgie.com"
+                  href="mailto:newgieinstalaciones@gmail.com"
                   className="flex items-center gap-6 p-6 bg-slate-50 rounded-2xl hover:bg-slate-100 transition-colors group"
                 >
                   <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-primary shadow-sm group-hover:scale-110 transition-transform">
@@ -56,7 +84,9 @@ export default function Contact() {
                 </a>
 
                 <a
-                  href="tel:+56912345678"
+                  href="https://wa.me/5492214383512"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-6 p-6 bg-slate-50 rounded-2xl hover:bg-slate-100 transition-colors group"
                 >
                   <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-primary shadow-sm group-hover:scale-110 transition-transform">
@@ -79,7 +109,7 @@ export default function Contact() {
                       Ubicación
                     </p>
                     <p className="font-bold">
-                      3 de febrero 14, san Fernando, Buenos Aires, Argentina
+                      3 de febrero 14, San Fernando, Buenos Aires, Argentina
                     </p>
                   </div>
                 </div>
@@ -119,10 +149,11 @@ export default function Contact() {
                   Mensaje enviado
                 </h3>
                 <p className="text-slate-500 mb-8">
-                  Gracias por contactarnos. Nuestro equipo te responderá en las
-                  próximas 24 horas.
+                  Gracias por contactarnos. Nuestro equipo te responderá a la
+                  brevedad.
                 </p>
                 <button
+                  type="button"
                   onClick={() => setSubmitted(false)}
                   className="btn-primary"
                 >
@@ -131,12 +162,19 @@ export default function Contact() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-8">
+                {error && (
+                  <div className="p-4 bg-red-50 text-red-600 rounded-2xl text-sm font-medium">
+                    {error}
+                  </div>
+                )}
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-2">
                     <label className="text-xs font-bold uppercase tracking-widest text-slate-400 px-1">
                       Nombre
                     </label>
                     <input
+                      name="nombre"
                       required
                       type="text"
                       className="w-full bg-slate-50 border-none rounded-2xl px-6 py-4 focus:ring-2 focus:ring-primary h-14"
@@ -147,6 +185,7 @@ export default function Contact() {
                       Apellido
                     </label>
                     <input
+                      name="apellido"
                       required
                       type="text"
                       className="w-full bg-slate-50 border-none rounded-2xl px-6 py-4 focus:ring-2 focus:ring-primary h-14"
@@ -160,6 +199,7 @@ export default function Contact() {
                       Correo
                     </label>
                     <input
+                      name="email"
                       required
                       type="email"
                       className="w-full bg-slate-50 border-none rounded-2xl px-6 py-4 focus:ring-2 focus:ring-primary h-14"
@@ -170,6 +210,7 @@ export default function Contact() {
                       Teléfono
                     </label>
                     <input
+                      name="telefono"
                       type="tel"
                       className="w-full bg-slate-50 border-none rounded-2xl px-6 py-4 focus:ring-2 focus:ring-primary h-14"
                     />
@@ -180,12 +221,17 @@ export default function Contact() {
                   <label className="text-xs font-bold uppercase tracking-widest text-slate-400 px-1">
                     Tipo de consulta
                   </label>
-                  <select className="w-full bg-slate-50 border-none rounded-2xl px-6 py-4 focus:ring-2 focus:ring-primary h-14 appearance-none">
-                    <option>Selecciona una opción</option>
-                    <option>Residencial</option>
-                    <option>Remodelación</option>
-                    <option>Instalación eléctrica</option>
-                    <option>Otro</option>
+                  <select
+                    name="tipo_consulta"
+                    defaultValue="Residencial"
+                    className="w-full bg-slate-50 border-none rounded-2xl px-6 py-4 focus:ring-2 focus:ring-primary h-14"
+                  >
+                    <option value="Residencial">Residencial</option>
+                    <option value="Remodelación">Remodelación</option>
+                    <option value="Instalación eléctrica">
+                      Instalación eléctrica
+                    </option>
+                    <option value="Otro">Otro</option>
                   </select>
                 </div>
 
@@ -194,6 +240,7 @@ export default function Contact() {
                     Mensaje
                   </label>
                   <textarea
+                    name="mensaje"
                     required
                     rows={5}
                     className="w-full bg-slate-50 border-none rounded-2xl px-6 py-4 focus:ring-2 focus:ring-primary resize-none"
@@ -214,9 +261,18 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className="w-full btn-primary h-16 text-lg gap-3"
+                  disabled={loading}
+                  className="w-full btn-primary h-16 text-lg gap-3 disabled:opacity-50 flex items-center justify-center cursor-pointer"
                 >
-                  Enviar consulta <Send size={20} />
+                  {loading ? (
+                    <>
+                      Enviando... <Loader2 size={20} className="animate-spin" />
+                    </>
+                  ) : (
+                    <>
+                      Enviar consulta <Send size={20} />
+                    </>
+                  )}
                 </button>
               </form>
             )}
