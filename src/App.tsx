@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
 import FaqButton from "./components/FaqButton";
+import ScrollToTop from "./components/ScrollToTop"; // <-- IMPORTAR AQUÍ
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
@@ -18,11 +19,11 @@ import ProjectDetail from "./pages/ProjectDetail";
 export default function App() {
   return (
     <Router>
+      <ScrollToTop /> {/* <-- AGREGAR AQUÍ */}
       <div className="min-h-screen flex flex-col w-full overflow-x-hidden relative">
         <Navbar />
         <main className="flex-grow w-full">
           <Routes>
-            {/* Con HashRouter, la raíz siempre será "/" después del # */}
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/projects" element={<Projects />} />
@@ -30,7 +31,6 @@ export default function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/test" element={<UnderConstruction />} />
 
-            {/* Redirección automática si se pierde la ruta */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>

@@ -26,7 +26,7 @@ export default function Navbar() {
     { name: "Inicio", path: "/" },
     { name: "Sobre nosotros", path: "/about" },
     { name: "Proyectos", path: "/projects" },
-    { name: "test", path: "/test" },
+    // { name: "test", path: "/test" },
   ];
 
   const handleNavigation = (

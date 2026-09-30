@@ -44,16 +44,16 @@ export const PROJECTS_DATA = [
 
   {
     id: "p3",
-    title: "Remodelación hotelera",
+    title: "Torre de vivienda Gran Atlántida",
     subtitle:
-      "Puesta en valor de espacios hoteleros conservando su identidad y carácter.",
+      "Trabajos de instalaciones eléctricas, iluminación cañerías de detección de incendio, tableros de servicios generales.",
     desc: "Intervención y renovación de espacios destinados a la actividad hotelera.",
     tags: ["Remodelación", "Hotelería", "Construcción"],
     image: "/NewGie/img/frente.jpeg",
     details: {
       servicios: "Remodelación integral",
       duración: "4 meses",
-      ubicación: "Centro Histórico",
+      ubicación: "Puerto Madero y San Telmo",
       tipo: "Establecimiento hotelero",
     },
     story:
@@ -185,7 +185,7 @@ export const PROJECTS_DATA = [
       "Incorporación de señalización luminosa para facilitar la identificación de las vías de evacuación.",
     desc: "Instalación de cartel luminoso de salida de emergencia.",
     tags: ["Seguridad", "Instalación eléctrica", "Emergencias"],
-    image: "/NewGie/img/SALIDA-EMERGENCIA.jpeg",
+    image: "/NewGie/img/SALIDA-EMERGENCIA2.jpeg",
     details: {
       servicios: "Instalación de señalización",
       duración: "Según proyecto",
@@ -217,6 +217,27 @@ export const PROJECTS_DATA = [
       "/NewGie/img/COCINA01.jpeg",
       "/NewGie/img/COCINA02.jpeg",
       "/NewGie/img/COCINA03.jpeg",
+    ],
+  },
+  {
+    id: "p11",
+    title: "Interiorismo en departamento Gran Atlántida",
+    subtitle: "Proyecto de interiorismo en un departamento de Gran Atlántida.",
+    desc: "Colocación de horno, anafe y sistemas de extracción.",
+    tags: ["Cocinas", "Instalación", "Equipamiento"],
+    image: "/NewGie/img/interior1.jpeg",
+    details: {
+      servicios: "Instalación de equipamiento",
+      duración: "Según proyecto",
+      ubicación: "Buenos Aires",
+      tipo: "Cocina",
+    },
+    story:
+      "Se realizó el proyecto, instalación eléctrica, colocación de luminarias, fabricación de muebles a medida, empapelado, mampara y pintura.",
+    gallery: [
+      "/NewGie/img/interior1.jpeg",
+      "/NewGie/img/interior2.jpeg",
+      "/NewGie/img/interior3.jpeg",
     ],
   },
 ];

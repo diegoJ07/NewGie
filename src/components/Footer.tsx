@@ -28,7 +28,7 @@ const redes = [
     icon: Linkedin,
     url: "https://www.linkedin.com/in/newgie-construcciones-318b003b2/",
   },
-  { name: "Mail", icon: Mail, url: "#" },
+  { name: "Mail", icon: Mail, url: "newgieinstalaciones@gmail.com" },
 ];
 
 const crearLinkWhatsApp = (servicio: string) => {

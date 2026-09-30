@@ -31,12 +31,12 @@ export default function ProjectDetail() {
   }
 
   return (
-    <div className="pt-32 pb-20 overflow-hidden">
+    <div className="pt-28 md:pt-32 pb-16 md:pb-20 overflow-hidden">
       <div className="container mx-auto px-6">
         {/* Navegación de regreso */}
         <Link
           to="/projects"
-          className="inline-flex items-center gap-2 text-slate-400 hover:text-primary transition-colors mb-12 font-medium text-sm group"
+          className="inline-flex items-center gap-2 text-slate-400 hover:text-primary transition-colors mb-8 md:mb-12 font-medium text-sm group"
         >
           <ArrowLeft
             size={16}
@@ -46,12 +46,12 @@ export default function ProjectDetail() {
         </Link>
 
         {/* Encabezado Dinámico */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 mb-12 md:mb-20 items-end">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 mb-8 md:mb-20 items-end">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-display font-bold mb-6 md:mb-8">
+            <h1 className="text-3xl sm:text-5xl md:text-7xl font-display font-bold mb-4 md:mb-8">
               {project.title}
             </h1>
             <p className="text-slate-500 text-base md:text-lg leading-relaxed">
@@ -82,11 +82,11 @@ export default function ProjectDetail() {
         </div>
 
         {/* Visual Principal */}
-        <div className="space-y-16">
+        <div className="space-y-10 md:space-y-16">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="rounded-[3rem] overflow-hidden aspect-video shadow-2xl relative"
+            className="rounded-3xl md:rounded-[3rem] overflow-hidden aspect-video shadow-2xl relative"
           >
             <img
               src={project.image}
@@ -97,17 +97,17 @@ export default function ProjectDetail() {
           </motion.div>
 
           {/* Grilla de Información y Storytelling */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-20">
-            <div className="lg:col-span-5 bg-black text-white p-8 md:p-12 rounded-3xl md:rounded-[3rem] self-start space-y-10 md:space-y-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-16 lg:gap-20">
+            <div className="lg:col-span-5 bg-black text-white p-6 sm:p-8 md:p-12 rounded-3xl md:rounded-[3rem] self-start space-y-8 md:space-y-12">
               <div>
-                <h3 className="text-xl md:text-2xl font-display font-bold mb-8 md:mb-10">
+                <h3 className="text-xl md:text-2xl font-display font-bold mb-6 md:mb-10">
                   Ficha Técnica
                 </h3>
-                <div className="space-y-6 md:space-y-8">
+                <div className="space-y-5 md:space-y-8">
                   {Object.entries(project.details).map(([key, val]) => (
                     <div
                       key={key}
-                      className="flex justify-between items-center border-b border-white/10 pb-4 md:pb-6 group cursor-default"
+                      className="flex justify-between items-center border-b border-white/10 pb-3 md:pb-6 group cursor-default"
                     >
                       <span className="text-xs md:text-sm text-slate-400 font-medium capitalize">
                         {key}
@@ -126,10 +126,14 @@ export default function ProjectDetail() {
               </p>
             </div>
 
-            <div className="lg:col-span-7 py-10">
+            {/* Reducido el padding en móviles para eliminar el espacio sobrante */}
+            <div className="lg:col-span-7 py-2 lg:py-10">
               <div className="prose prose-slate prose-lg max-w-none">
                 {project.story.split("\n\n").map((p, i) => (
-                  <p key={i} className="text-slate-600 leading-[1.8] mb-8">
+                  <p
+                    key={i}
+                    className="text-slate-600 leading-[1.8] mb-4 lg:mb-8 last:mb-0"
+                  >
                     {p}
                   </p>
                 ))}
@@ -138,17 +142,17 @@ export default function ProjectDetail() {
           </div>
         </div>
 
-        {/* Sección de Excelencia (Estática/General) */}
-        <section className="mt-32 border-t border-slate-100 pt-32">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
+        {/* Sección de Excelencia (Márgenes adaptativos: reducidos en móvil, amplios en desktop) */}
+        <section className="mt-12 md:mt-24 lg:mt-32 border-t border-slate-100 pt-12 md:pt-24 lg:pt-32">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
             <div>
               <span className="text-primary font-medium tracking-widest text-xs uppercase mb-3 block">
                 Excelencia Técnica
               </span>
-              <h2 className="text-4xl font-display font-bold mb-8">
+              <h2 className="text-3xl md:text-4xl font-display font-bold mb-6 md:mb-8">
                 Diseño detallado y ejecución de precisión
               </h2>
-              <p className="text-slate-500 mb-10 leading-relaxed italic">
+              <p className="text-slate-500 mb-8 md:mb-10 leading-relaxed italic">
                 En NewGie, creemos que la diferencia está en los milímetros.
                 Cada unión y material es planificado exhaustivamente.
               </p>
@@ -181,9 +185,9 @@ export default function ProjectDetail() {
               </div>
             </div>
             <div className="relative">
-              <div className="rounded-[3rem] overflow-hidden aspect-square bg-slate-100">
+              <div className="rounded-3xl md:rounded-[3rem] overflow-hidden aspect-square bg-slate-100">
                 <img
-                  src="https://images.unsplash.com/photo-1541976590-713941fbc1f6?q=80&w=1200&auto=format&fit=crop"
+                  src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1200&auto=format&fit=crop"
                   alt="Detalle constructivo"
                   className="w-full h-full object-cover"
                 />
@@ -201,12 +205,12 @@ export default function ProjectDetail() {
         </section>
 
         {/* Galería Dinámica */}
-        <section className="mt-32">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl font-display font-bold mb-4">
+        <section className="mt-16 md:mt-32">
+          <div className="text-center mb-10 md:mb-20">
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
               Galería del proyecto
             </h2>
-            <p className="text-slate-500">
+            <p className="text-slate-500 text-sm md:text-base">
               Imágenes reales del proceso y resultado final.
             </p>
           </div>
@@ -230,20 +234,20 @@ export default function ProjectDetail() {
         </section>
 
         {/* CTA Final */}
-        <section className="mt-32 bg-slate-50 rounded-[3rem] p-16 md:p-24 text-center overflow-hidden relative">
+        <section className="mt-16 md:mt-32 bg-slate-50 rounded-3xl md:rounded-[3rem] p-8 md:p-24 text-center overflow-hidden relative">
           <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-8 relative z-10">
+          <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 md:mb-8 relative z-10">
             Construyamos juntos
           </h2>
-          <p className="text-slate-500 mb-12 max-w-2xl mx-auto relative z-10">
+          <p className="text-slate-500 mb-8 md:mb-12 max-w-2xl mx-auto relative z-10 text-sm md:text-base">
             Transformamos visiones en realidades tangibles con profesionalismo y
             rigor técnico.
           </p>
           <div className="flex flex-wrap justify-center gap-4 relative z-10">
-            <Link to="/contact" className="btn-primary px-12">
+            <Link to="/contact" className="btn-primary px-8 md:px-12">
               Contacto
             </Link>
-            <Link to="/projects" className="btn-outline px-12">
+            <Link to="/projects" className="btn-outline px-8 md:px-12">
               Otros Proyectos
             </Link>
           </div>

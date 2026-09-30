@@ -156,15 +156,13 @@ export default function Home() {
                 title: "Equipo profesional y Comprometido",
                 desc: "Gente que conoce su oficio y lo respeta.",
                 icon: <Users className="text-primary" size={32} />,
-                image:
-                  "https://images.unsplash.com/photo-1574621100236-d25b64cfd647?q=80&w=640&auto=format&fit=crop",
+                image: "../NewGie/img/electricistas.jpeg",
               },
               {
                 title: "Cumplimiento Garantizado",
                 desc: "Consideramos fundamental pactar un control de calidad antes de la entrega para mayor tranquilidad del cliente.",
                 icon: <CheckCircle2 className="text-primary" size={32} />,
-                image:
-                  "https://images.unsplash.com/photo-1503387762-592dea58ef23?q=80&w=640&auto=format&fit=crop",
+                image: "../NewGie/img/cumplimiento-garantizado.jpeg",
               },
               {
                 title: "Relaciones Duraderas",
@@ -313,7 +311,7 @@ export default function Home() {
 
                   <div className="text-center">
                     <div className="text-3xl md:text-4xl font-display font-bold text-secondary">
-                      98
+                      15
                     </div>
 
                     <div className="text-[10px] md:text-xs text-slate-500 uppercase tracking-wider">
@@ -327,7 +325,7 @@ export default function Home() {
             <div className="relative">
               <div className="rounded-[3rem] overflow-hidden aspect-[4/5] bg-slate-100">
                 <img
-                  src="https://images.unsplash.com/photo-1541888946425-d81bb19480c5?q=80&w=1470&auto=format&fit=crop"
+                  src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1200&auto=format&fit=crop"
                   alt="Construction worker"
                   className="w-full h-full object-cover"
                 />
