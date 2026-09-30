@@ -7,32 +7,46 @@ export default function Contact() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  const SCRIPT_URL =
+    "https://script.google.com/macros/s/AKfycbxahi4ZSGAVyysy7uSUCq-I9fqivc3WWNMIo6oMfl_3cDtYfnQSQP6feivYl-zN5k_A/exec";
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     setError(null);
 
-    const formData = new FormData(e.currentTarget);
-    formData.append("access_key", "LA_NUEVA_CLAVE_DEL_CLIENTE");
-    formData.append("subject", "Nueva consulta web - NewGie");
+    const formEl = e.currentTarget;
+    const formData = new FormData(formEl);
+
+    // Empaquetamos los datos usando URLSearchParams para garantizar lectura directa en Apps Script
+    const params = new URLSearchParams();
+    params.append("tipo", "contacto");
+    params.append("nombre", (formData.get("nombre") as string) || "");
+    params.append("apellido", (formData.get("apellido") as string) || "");
+    params.append("email", (formData.get("email") as string) || "");
+    params.append("telefono", (formData.get("telefono") as string) || "");
+    params.append(
+      "tipo_consulta",
+      (formData.get("tipo_consulta") as string) || "Residencial",
+    );
+    params.append("mensaje", (formData.get("mensaje") as string) || "");
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      await fetch(SCRIPT_URL, {
         method: "POST",
-        body: formData,
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: params.toString(),
       });
 
-      const data = await response.json();
-
-      if (data.success) {
-        setSubmitted(true);
-      } else {
-        setError(
-          data.message || "Error al procesar el mensaje. Intenta nuevamente.",
-        );
-      }
+      setSubmitted(true);
+      formEl.reset();
     } catch (err: any) {
-      setError("Error de red. Verifica tu conexión o intenta más tarde.");
+      setError(
+        "No pudimos enviar tu consulta en este momento. Intenta nuevamente o contáctanos por WhatsApp.",
+      );
     } finally {
       setLoading(false);
     }
@@ -124,7 +138,7 @@ export default function Contact() {
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
-                  allowFullScreen=""
+                  allowFullScreen={false}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   title="Ubicación de la oficina"
