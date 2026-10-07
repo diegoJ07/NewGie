@@ -163,7 +163,7 @@ export default function Home() {
             {[
               {
                 title: "Equipo profesional y Comprometido",
-                desc: "Gente que conoce su oficio y lo respeta: electricistas, constructores y jefes de obra calificados.",
+                desc: "Gente que conoce su oficio y tiene experiencia de años de trayectoria.",
                 icon: <Users className="text-primary" size={32} />,
                 image: "../NewGie/img/electricistas.jpeg",
                 alt: "Electricistas profesionales realizando montaje en obra",
