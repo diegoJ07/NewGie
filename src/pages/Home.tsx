@@ -8,7 +8,8 @@ import {
   Star,
   Quote,
   ChevronDown,
-  PenTool,
+  Zap,
+  Wrench,
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -17,7 +18,6 @@ export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const location = useLocation();
 
-  // Permite que /#faqs haga scroll automáticamente hasta la sección FAQ
   useEffect(() => {
     if (location.hash === "#faqs") {
       const timer = setTimeout(() => {
@@ -50,9 +50,15 @@ export default function Home() {
 
   const faqs = [
     {
-      question: "¿Qué tipos de proyectos realizan?",
+      question: "¿Qué tipos de proyectos y servicios realizan?",
       answer:
-        "En NewGie nos especializamos en construcción de obras nuevas, remodelaciones residenciales de alta gama, intervenciones industriales y mantenimiento para el sector hotelero.",
+        "En NewGie nos especializamos en construcción de obras nuevas, remodelaciones residenciales de alta gama, intervenciones industriales y hoteleras, además de servicios técnicos de instalaciones eléctricas (tableros, cañerías Daisa, cableados), plomería y mantenimiento integral.",
+    },
+    {
+      question:
+        "¿Cuentan con electricistas matriculados para obras y comercios?",
+      answer:
+        "Sí, nuestro equipo cuenta con especialistas e instaladores para tableros eléctricos, iluminación LED, sistemas de emergencia y fuerza motriz bajo estrictas normas de seguridad.",
     },
     {
       question: "¿Ofrecen garantía por los trabajos realizados?",
@@ -65,9 +71,9 @@ export default function Home() {
         "Una vez que nos contactas, agendamos una reunión técnica para entender las necesidades del proyecto. Luego, nuestro equipo de especialistas elabora un presupuesto detallado y un cronograma estimado de ejecución.",
     },
     {
-      question: "¿Trabajan en todo el país?",
+      question: "¿En qué zonas trabajan?",
       answer:
-        "Actualmente operamos principalmente en zonas estratégicas, pero tenemos capacidad logística para grandes proyectos industriales y hoteleros en distintas regiones. Consúltanos por tu ubicación específica.",
+        "Operamos principalmente en San Fernando, Zona Norte y Gran Buenos Aires, con capacidad técnica y logística para grandes proyectos en distintas regiones. Consúltanos por tu ubicación específica.",
     },
   ];
 
@@ -82,15 +88,17 @@ export default function Home() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
+              {/* TU H1 ORIGINAL */}
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-display font-bold leading-[1.1] mb-6 md:mb-8 text-secondary">
                 DEL <span className="text-primary">DISEÑO</span> A LA REALIDAD
                 ENFOCADOS EN <span className="text-primary">CADA DETALLE</span>
               </h1>
 
               <p className="text-slate-600 text-base md:text-lg mb-8 md:mb-10 max-w-xl leading-relaxed">
-                En NewGie transformamos visiones arquitectónicas en estructuras
-                de alto rendimiento. Construcción moderna enfocada en la
-                excelencia y el diseño detallado.
+                En <strong>NewGie</strong> transformamos visiones
+                arquitectónicas en estructuras de alto rendimiento. Construcción
+                moderna, servicios eléctricos profesionales, cañerías,
+                sanitarias y remodelaciones enfocadas en la excelencia.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
@@ -116,7 +124,7 @@ export default function Home() {
             >
               <img
                 src="/NewGie/img/img-principal.png"
-                alt="Construction team"
+                alt="Equipo de electricistas e ingenieros de obra en NewGie"
                 className="w-full h-full object-cover"
               />
 
@@ -140,7 +148,8 @@ export default function Home() {
 
             <p className="text-slate-500 max-w-2xl text-left">
               Elaboramos documentación técnica con nuestros especialistas para
-              obtener un mejor resultado en cada tarea.
+              obtener un mejor resultado en cada tarea, desde instalaciones de
+              obra hasta montajes eléctricos.
             </p>
           </div>
 
@@ -154,22 +163,25 @@ export default function Home() {
             {[
               {
                 title: "Equipo profesional y Comprometido",
-                desc: "Gente que conoce su oficio y lo respeta.",
+                desc: "Gente que conoce su oficio y lo respeta: electricistas, constructores y jefes de obra calificados.",
                 icon: <Users className="text-primary" size={32} />,
                 image: "../NewGie/img/electricistas.jpeg",
+                alt: "Electricistas profesionales realizando montaje en obra",
               },
               {
                 title: "Cumplimiento Garantizado",
                 desc: "Consideramos fundamental pactar un control de calidad antes de la entrega para mayor tranquilidad del cliente.",
                 icon: <CheckCircle2 className="text-primary" size={32} />,
                 image: "../NewGie/img/cumplimiento-garantizado.jpeg",
+                alt: "Control técnico y garantía en obras e instalaciones",
               },
               {
                 title: "Relaciones Duraderas",
-                desc: "Nuestros clientes vuelven porque saben qué esperar.",
+                desc: "Nuestros clientes vuelven porque saben qué esperar en cada proyecto comercial o residencial.",
                 icon: <Star className="text-primary" size={32} />,
                 image:
                   "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=640&auto=format&fit=crop",
+                alt: "Atención personalizada para clientes y arquitectos",
               },
             ].map((card, idx) => (
               <motion.div
@@ -189,7 +201,7 @@ export default function Home() {
                   <div className="rounded-2xl overflow-hidden h-48">
                     <img
                       src={card.image}
-                      alt={card.title}
+                      alt={card.alt}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
                   </div>
@@ -227,19 +239,19 @@ export default function Home() {
                 desc: "Edificaciones sólidas levantadas con materiales de calidad y técnica comprobada.",
               },
               {
-                title: "Diseño de proyectos residenciales",
-                icon: <PenTool size={40} />,
-                desc: "Espacios habitables pensados para la vida cotidiana de las familias.",
+                title: "Instalaciones eléctricas y tableros",
+                icon: <Zap size={40} />,
+                desc: "Montaje de tableros, cañerías Daisa, cableado integral, iluminación LED y fuerza motriz.",
               },
               {
                 title: "Remodelaciones industriales y hoteleras",
                 icon: <Hammer size={40} />,
-                desc: "Transformamos estructuras existentes en ambientes funcionales y modernos.",
+                desc: "Transformamos estructuras existentes en ambientes funcionales, sanitarias modernas y confort.",
               },
               {
                 title: "Cuadrillas y mantenimiento continuo",
-                icon: <Users size={40} />,
-                desc: "Equipos especializados que cuidan y preservan lo que hemos construido.",
+                icon: <Wrench size={40} />,
+                desc: "Equipos especializados que cuidan y preservan instalaciones eléctricas, edilicias y sanitarias.",
               },
             ].map((service, idx) => (
               <div key={idx} className="flex flex-col h-full items-start">
@@ -303,7 +315,7 @@ export default function Home() {
                       >
                         <img
                           src={`https://i.pravatar.cc/100?u=${i}`}
-                          alt="Avatar"
+                          alt="Cliente satisfecho con obras NewGie"
                         />
                       </div>
                     ))}
@@ -326,7 +338,7 @@ export default function Home() {
               <div className="rounded-[3rem] overflow-hidden aspect-[4/5] bg-slate-100">
                 <img
                   src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1200&auto=format&fit=crop"
-                  alt="Construction worker"
+                  alt="Instalador y profesional técnico de construcción en obra"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -367,10 +379,12 @@ export default function Home() {
             {[
               {
                 title: "Habitación Singular De Hotel",
-                desc: "Residencia moderna con vistas al valle y acabados premium.",
+                desc: "Residencia moderna con vistas al valle, instalaciones renovadas y acabados premium.",
                 tags: ["Hotelería", "Diseño", "Remodelación"],
                 image:
                   "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800&auto=format&fit=crop",
+                alt: "Habitación singular de hotel remodelada con iluminación de diseño",
+                id: "p1",
               },
               {
                 title: "Habitación Doble De Hotel",
@@ -378,6 +392,8 @@ export default function Home() {
                 tags: ["Hotelería", "Remodelación", "Acabados"],
                 image:
                   "https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=800&auto=format&fit=crop",
+                alt: "Habitación doble de hotel con instalaciones y acabados modernos",
+                id: "p2",
               },
             ].map((project, idx) => (
               <div
@@ -387,7 +403,7 @@ export default function Home() {
                 <div className="h-80 overflow-hidden relative">
                   <img
                     src={project.image}
-                    alt={project.title}
+                    alt={project.alt}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
 
@@ -411,7 +427,7 @@ export default function Home() {
                   </p>
 
                   <Link
-                    to={`/projects/${idx}`}
+                    to={`/projects/${project.id}`}
                     className="text-secondary font-bold text-sm flex items-center gap-2 group-hover:text-primary transition-colors"
                   >
                     Ver proyecto
@@ -581,7 +597,8 @@ export default function Home() {
 
             <p className="relative z-10 text-black mb-12 max-w-xl text-lg leading-relaxed text-left mx-auto">
               Tenemos experiencia en lo que hacemos. Cuéntanos qué necesitas y
-              construyamos algo extraordinario.
+              construyamos algo extraordinario en San Fernando y Gran Buenos
+              Aires.
             </p>
 
             <div className="flex flex-wrap justify-center gap-4 relative z-10">

@@ -1,26 +1,30 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  // Facebook,
-  Instagram,
-  Linkedin,
-  Mail,
-  Loader2,
-  CheckCircle2,
-} from "lucide-react";
+import { Instagram, Linkedin, Mail, Loader2, CheckCircle2 } from "lucide-react";
 
-const telefono = "+549221438-3512";
+const telefono = "5492214383512";
 
 const servicios = [
-  "Construcción",
-  "Remodelaciones",
-  "Diseño",
-  "Mantenimiento",
-  "Cuadrillas",
+  {
+    nombre: "Instalaciones Eléctricas",
+    query: "instalaciones eléctricas y tableros",
+  },
+  {
+    nombre: "Electricistas Matriculados",
+    query: "electricista matriculado para una obra/reparación",
+  },
+  {
+    nombre: "Instalaciones de Agua y Sanitarias",
+    query: "instalaciones sanitarias y plomería",
+  },
+  { nombre: "Remodelaciones Integrales", query: "remodelaciones integrales" },
+  {
+    nombre: "Construcción de Obras Nuevas",
+    query: "construcción de obra nueva",
+  },
 ];
 
 const redes = [
-  // { name: "Facebook", icon: Facebook, url: "#" },
   {
     name: "Instagram",
     icon: Instagram,
@@ -34,8 +38,8 @@ const redes = [
   { name: "Mail", icon: Mail, url: "mailto:newgieinstalaciones@gmail.com" },
 ];
 
-const crearLinkWhatsApp = (servicio: string) => {
-  const mensaje = `Hola queria saber sobre el servicio de ${servicio}`;
+const crearLinkWhatsApp = (query: string) => {
+  const mensaje = `Hola NewGie, quisiera consultar por el servicio de ${query}.`;
   return `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
 };
 
@@ -69,7 +73,7 @@ export default function Footer() {
 
       setSubscribed(true);
       setEmail("");
-    } catch (err) {
+    } catch {
       setError("No pudimos procesar tu suscripción. Intenta nuevamente.");
     } finally {
       setLoading(false);
@@ -82,11 +86,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Logo & Newsletter */}
           <div className="lg:col-span-1">
-            <Link to="/" className="text-2xl font-display font-bold mb-6 block">
+            <Link to="/" className="text-2xl font-display font-bold mb-3 block">
               NewGie
             </Link>
             <p className="text-slate-400 text-sm mb-6 leading-relaxed">
-              Recibe noticias sobre nuestros proyectos y servicios.
+              Construcción moderna, instalaciones eléctricas certificadas, agua
+              y reformas edilicias en San Fernando y Gran Buenos Aires.
             </p>
 
             {subscribed ? (
@@ -108,7 +113,7 @@ export default function Footer() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="bg-primary hover:bg-primary-dark px-4 py-2.5 rounded-lg text-sm font-bold transition-colors shrink-0 flex items-center justify-center min-w-[52px] disabled:opacity-50 cursor-pointer"
+                    className="bg-primary hover:bg-primary-dark px-4 py-2.5 rounded-lg text-sm font-bold transition-colors shrink-0 flex items-center justify-center min-w-[52px] disabled:opacity-50 cursor-pointer text-black"
                   >
                     {loading ? (
                       <Loader2 size={16} className="animate-spin" />
@@ -122,7 +127,7 @@ export default function Footer() {
             )}
           </div>
 
-          {/* Navigation */}
+          {/* Navegación */}
           <div>
             <h4 className="text-lg font-bold mb-6">Navegación</h4>
             <ul className="space-y-4 text-slate-400 text-sm">
@@ -144,7 +149,7 @@ export default function Footer() {
                   to="/projects"
                   className="hover:text-primary transition-colors"
                 >
-                  Proyectos
+                  Obras y Proyectos
                 </Link>
               </li>
               <li>
@@ -152,36 +157,37 @@ export default function Footer() {
                   to="/contact"
                   className="hover:text-primary transition-colors"
                 >
-                  Contacto
+                  Contacto y Presupuestos
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Servicios SEO */}
           <div>
-            <h4 className="text-lg font-bold mb-6">Servicios</h4>
+            <h4 className="text-lg font-bold mb-6">
+              Servicios e Instalaciones
+            </h4>
             <ul className="space-y-4 text-slate-400 text-sm">
-              {servicios.map((servicio) => (
-                <li key={servicio}>
+              {servicios.map((s) => (
+                <li key={s.nombre}>
                   <a
-                    href={crearLinkWhatsApp(servicio)}
+                    href={crearLinkWhatsApp(s.query)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-primary transition-colors"
                   >
-                    {servicio}
+                    {s.nombre}
                   </a>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Social */}
+          {/* Redes */}
           <div>
-            <h4 className="text-lg font-bold mb-6">Síguenos</h4>
-
-            <div className="flex flex-wrap gap-4">
+            <h4 className="text-lg font-bold mb-6">Contacto y Redes</h4>
+            <div className="flex flex-wrap gap-4 mb-6">
               {redes.map(({ name, icon: Icon, url }) => (
                 <a
                   key={name}
@@ -189,17 +195,25 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={name}
-                  className="w-10 h-10 rounded-full border border-slate-800 flex items-center justify-center hover:bg-primary hover:border-primary transition-all text-slate-400 hover:text-white"
+                  className="w-10 h-10 rounded-full border border-slate-800 flex items-center justify-center hover:bg-primary hover:border-primary transition-all text-slate-400 hover:text-black"
                 >
                   <Icon size={18} />
                 </a>
               ))}
             </div>
+            <p className="text-xs text-slate-500 leading-relaxed">
+              3 de Febrero 14, San Fernando, Buenos Aires.
+              <br />
+              Atención telefónica: +54 9 2214 38-3512
+            </p>
           </div>
         </div>
 
         <div className="border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
-          <p>© {currentYear} NewGie. Todos los derechos reservados.</p>
+          <p>
+            © {currentYear} NewGie Construcciones e Instalaciones. Todos los
+            derechos reservados.
+          </p>
           <div className="flex gap-6">
             <Link to="/privacy-policy" className="hover:text-slate-300">
               Política de privacidad

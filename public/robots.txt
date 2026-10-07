@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Ubicación de tu Sitemap (reemplazá con tu dominio real si ya tenés dominio propio o usás github.io)
+Sitemap: https://newgie.com.ar/sitemap.xml

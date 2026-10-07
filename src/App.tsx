@@ -8,7 +8,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
 import FaqButton from "./components/FaqButton";
-import ScrollToTop from "./components/ScrollToTop"; // <-- IMPORTAR AQUÍ
+import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
@@ -21,7 +21,7 @@ import TermsOfService from "./pages/TermsOfService";
 export default function App() {
   return (
     <Router>
-      <ScrollToTop /> {/* <-- AGREGAR AQUÍ */}
+      <ScrollToTop />
       <div className="min-h-screen flex flex-col w-full overflow-x-hidden relative">
         <Navbar />
         <main className="flex-grow w-full">

@@ -8,13 +8,15 @@ export default function Projects() {
   const [filter, setFilter] = useState("Todos");
   const [searchQuery, setSearchQuery] = useState("");
 
-  // Lógica de filtrado y búsqueda combinada
   const filteredProjects = useMemo(() => {
     return PROJECTS_DATA.filter((project) => {
       const matchesFilter = filter === "Todos" || project.tags.includes(filter);
       const matchesSearch =
         project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        project.desc.toLowerCase().includes(searchQuery.toLowerCase());
+        project.desc.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        project.tags.some((tag) =>
+          tag.toLowerCase().includes(searchQuery.toLowerCase()),
+        );
       return matchesFilter && matchesSearch;
     });
   }, [filter, searchQuery]);
@@ -31,12 +33,13 @@ export default function Projects() {
     <div className="pt-32 pb-20 overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="text-left mb-20">
+          {/* TU H1 ORIGINAL */}
           <h1 className="text-5xl md:text-7xl font-display font-bold mb-8">
             Nuestros proyectos
           </h1>
           <p className="text-slate-500 text-lg max-w-2xl italic">
             Trabajos realizados con precisión y dedicación en cada detalle
-            constructivo.
+            constructivo, eléctrico y de infraestructura.
           </p>
         </div>
 
@@ -78,7 +81,7 @@ export default function Projects() {
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10"
         >
           <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project, idx) => (
+            {filteredProjects.map((project) => (
               <motion.div
                 key={project.id}
                 layout
@@ -92,7 +95,7 @@ export default function Projects() {
                   <div className="rounded-3xl md:rounded-[2.5rem] overflow-hidden aspect-square mb-6 md:mb-8 relative shadow-sm border border-slate-100">
                     <img
                       src={project.image}
-                      alt={project.title}
+                      alt={`${project.title} - ${project.tags.join(", ")} por NewGie`}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-6 md:p-10 flex flex-col justify-end">
@@ -142,7 +145,7 @@ export default function Projects() {
           </div>
         )}
 
-        {/* Paginación (Visual) */}
+        {/* Paginación */}
         <div className="mt-20 flex justify-center gap-4">
           {[1].map((n) => (
             <button

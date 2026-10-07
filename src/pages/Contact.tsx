@@ -18,7 +18,6 @@ export default function Contact() {
     const formEl = e.currentTarget;
     const formData = new FormData(formEl);
 
-    // Empaquetamos los datos usando URLSearchParams para garantizar lectura directa en Apps Script
     const params = new URLSearchParams();
     params.append("tipo", "contacto");
     params.append("nombre", (formData.get("nombre") as string) || "");
@@ -43,7 +42,7 @@ export default function Contact() {
 
       setSubmitted(true);
       formEl.reset();
-    } catch (err: any) {
+    } catch {
       setError(
         "No pudimos enviar tu consulta en este momento. Intenta nuevamente o contáctanos por WhatsApp.",
       );
@@ -56,12 +55,13 @@ export default function Contact() {
     <div className="pt-32 pb-20 overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="text-center mb-20">
+          {/* TU H1 ORIGINAL */}
           <h1 className="text-5xl md:text-7xl font-display font-bold mb-6">
             Hablemos de tu proyecto
           </h1>
           <p className="text-slate-500 text-lg max-w-2xl mx-auto">
             Estamos listos para escuchar tus ideas y convertirlas en realidad
-            con experiencia y dedicación.
+            con experiencia y dedicación en obras, reformas e instalaciones.
           </p>
         </div>
 
@@ -77,8 +77,8 @@ export default function Contact() {
                 Envía tu consulta
               </h2>
               <p className="text-slate-500 mb-10">
-                Cuéntanos qué necesitas construir y nos pondremos en contacto
-                contigo lo antes posible.
+                Cuéntanos qué necesitas construir, remodelar o instalar y nos
+                pondremos en contacto contigo lo antes posible.
               </p>
 
               <div className="space-y-6">
@@ -141,7 +141,7 @@ export default function Contact() {
                   allowFullScreen={false}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Ubicación de la oficina"
+                  title="Ubicación de la oficina en San Fernando"
                   className="w-full h-full"
                 />
               </div>
@@ -237,14 +237,14 @@ export default function Contact() {
                   </label>
                   <select
                     name="tipo_consulta"
-                    defaultValue="Residencial"
+                    defaultValue="Instalación eléctrica"
                     className="w-full bg-slate-50 border-none rounded-2xl px-6 py-4 focus:ring-2 focus:ring-primary h-14"
                   >
-                    <option value="Residencial">Residencial</option>
-                    <option value="Remodelación">Remodelación</option>
                     <option value="Instalación eléctrica">
                       Instalación eléctrica
                     </option>
+                    <option value="Residencial">Residencial</option>
+                    <option value="Remodelación">Remodelación</option>
                     <option value="Otro">Otro</option>
                   </select>
                 </div>
