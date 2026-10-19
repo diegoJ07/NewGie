@@ -123,7 +123,7 @@ export default function Home() {
               className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3] lg:aspect-auto"
             >
               <img
-                src="/NewGie/img/img-principal.png"
+                src="/img/img-principal.png"
                 alt="Equipo de electricistas e ingenieros de obra en NewGie"
                 className="w-full h-full object-cover"
               />
@@ -165,14 +165,14 @@ export default function Home() {
                 title: "Equipo profesional y Comprometido",
                 desc: "Gente que conoce su oficio y tiene experiencia de años de trayectoria.",
                 icon: <Users className="text-primary" size={32} />,
-                image: "../NewGie/img/electricistas.jpeg",
+                image: "../img/electricistas.jpeg",
                 alt: "Electricistas profesionales realizando montaje en obra",
               },
               {
                 title: "Cumplimiento Garantizado",
                 desc: "Consideramos fundamental pactar un control de calidad antes de la entrega para mayor tranquilidad del cliente.",
                 icon: <CheckCircle2 className="text-primary" size={32} />,
-                image: "../NewGie/img/cumplimiento-garantizado.jpeg",
+                image: "../img/cumplimiento-garantizado.jpeg",
                 alt: "Control técnico y garantía en obras e instalaciones",
               },
               {

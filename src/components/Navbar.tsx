@@ -81,7 +81,7 @@ export default function Navbar() {
           onClick={(e) => handleNavigation(e, "/")}
           className="text-2xl font-display font-bold text-white flex items-center gap-2"
         >
-          <img src="/NewGie/img/logo.png" alt="Logo" className="w-8 h-8" />
+          <img src="/img/logo.png" alt="Logo" className="w-8 h-8" />
           NewGie
         </Link>
 

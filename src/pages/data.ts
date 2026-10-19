@@ -6,7 +6,7 @@ export const PROJECTS_DATA = [
       "Renovación integral de una habitación pensada para mejorar confort, funcionalidad y experiencia.",
     desc: "Remodelación de habitación doble para uso hotelero.",
     tags: ["Remodelación", "Hotelería", "Construcción"],
-    image: "/NewGie/img/DOBLE01.jpg",
+    image: "/img/DOBLE01.jpg",
     details: {
       servicios: "Remodelación integral",
       duración: "Ocho meses",
@@ -16,10 +16,10 @@ export const PROJECTS_DATA = [
     story:
       "El proyecto contempló la renovación integral de una habitación doble, combinando mejoras constructivas y funcionales con una puesta en valor del espacio existente.",
     gallery: [
-      "/NewGie/img/DOBLE01.jpg",
-      "/NewGie/img/DOBLE02.jpg",
-      "/NewGie/img/DOBLE03.jpg",
-      "/NewGie/img/DOBLE04.jpg",
+      "/img/DOBLE01.jpg",
+      "/img/DOBLE02.jpg",
+      "/img/DOBLE03.jpg",
+      "/img/DOBLE04.jpg",
     ],
   },
 
@@ -30,7 +30,7 @@ export const PROJECTS_DATA = [
       "Una renovación pensada para aprovechar cada espacio sin perder confort ni funcionalidad.",
     desc: "Transformación y puesta en valor de una habitación hotelera.",
     tags: ["Remodelación", "Hotelería", "Interiorismo"],
-    image: "/NewGie/img/SIMPLE01.jpg",
+    image: "/img/SIMPLE01.jpg",
     details: {
       servicios: "Remodelación interior",
       duración: "4 meses",
@@ -39,7 +39,7 @@ export const PROJECTS_DATA = [
     },
     story:
       "La intervención buscó renovar completamente el ambiente, optimizando su distribución y actualizando sus terminaciones para adaptarlo a las necesidades de la actividad hotelera.",
-    gallery: ["/NewGie/img/SIMPLE01.jpg", "/NewGie/img/SIMPLE02.jpg"],
+    gallery: ["/img/SIMPLE01.jpg", "/img/SIMPLE02.jpg"],
   },
 
   {
@@ -49,7 +49,7 @@ export const PROJECTS_DATA = [
       "Trabajos de instalaciones eléctricas, iluminación cañerías de detección de incendio, tableros de servicios generales.",
     desc: "Intervención y renovación de espacios destinados a la actividad hotelera.",
     tags: ["Remodelación", "Hotelería", "Construcción"],
-    image: "/NewGie/img/frente.jpeg",
+    image: "/img/frente.jpeg",
     details: {
       servicios: "Remodelación integral",
       duración: "4 meses",
@@ -59,8 +59,8 @@ export const PROJECTS_DATA = [
     story:
       "El proyecto se enfocó en recuperar y actualizar distintos sectores del establecimiento, combinando la identidad existente con soluciones constructivas adaptadas a las necesidades actuales.",
     gallery: [
-      "/NewGie/img/frente.jpeg",
-      "/NewGie/img/interior.jpeg",
+      "/img/frente.jpeg",
+      "/img/interior.jpeg",
       "https://haemprendimientos.com.ar/wp-content/uploads/2019/03/Gran-Atlantida-de-HA-Emprendimientos-6.webp",
       "https://haemprendimientos.com.ar/wp-content/uploads/2019/03/Gran-Atlantida-de-HA-Emprendimientos-7.webp",
     ],
@@ -73,7 +73,7 @@ export const PROJECTS_DATA = [
       "Instalación de cañerías y canalizaciones para una infraestructura de iluminación segura y ordenada.",
     desc: "Ejecución de cañería para instalación de iluminación Daisa.",
     tags: ["Instalación eléctrica", "Iluminación", "Obra"],
-    image: "/NewGie/img/ILUMINACION01.jpeg",
+    image: "/img/ILUMINACION01.jpeg",
     details: {
       servicios: "Instalación eléctrica",
       duración: "Según proyecto",
@@ -83,9 +83,9 @@ export const PROJECTS_DATA = [
     story:
       "El trabajo comprendió la ejecución y colocación de cañerías destinadas al sistema de iluminación Daisa, preparando la infraestructura necesaria para una instalación prolija, funcional y segura.",
     gallery: [
-      "/NewGie/img/ILUMINACION01.jpeg",
-      "/NewGie/img/ILUMINACION02.jpeg",
-      "/NewGie/img/ILUMINACION03.jpeg",
+      "/img/ILUMINACION01.jpeg",
+      "/img/ILUMINACION02.jpeg",
+      "/img/ILUMINACION03.jpeg",
     ],
   },
 
@@ -96,7 +96,7 @@ export const PROJECTS_DATA = [
       "Incorporación de iluminación colgante para aportar funcionalidad y carácter a los espacios.",
     desc: "Colocación y puesta en funcionamiento de luminarias colgantes.",
     tags: ["Iluminación", "Instalación", "Mantenimiento"],
-    image: "/NewGie/img/ILUMINACION04.jpeg",
+    image: "/img/ILUMINACION04.jpeg",
     details: {
       servicios: "Instalación de luminarias",
       duración: "Según proyecto",
@@ -105,10 +105,7 @@ export const PROJECTS_DATA = [
     },
     story:
       "La intervención estuvo centrada en la instalación de luminarias colgantes, cuidando tanto su correcta fijación como la distribución de la iluminación dentro del espacio.",
-    gallery: [
-      "/NewGie/img/ILUMINACION04.jpeg",
-      "/NewGie/img/ILUMINACION05.jpeg",
-    ],
+    gallery: ["/img/ILUMINACION04.jpeg", "/img/ILUMINACION05.jpeg"],
   },
 
   {
@@ -118,7 +115,7 @@ export const PROJECTS_DATA = [
       "Soluciones de iluminación eficientes diseñadas para optimizar el consumo y automatizar su funcionamiento.",
     desc: "Instalación de luminarias LED y sistemas de temporización.",
     tags: ["Iluminación LED", "Eficiencia", "Instalación"],
-    image: "/NewGie/img/ILUMINACION06.jpeg",
+    image: "/img/ILUMINACION06.jpeg",
     details: {
       servicios: "Instalación y automatización",
       duración: "Según proyecto",
@@ -128,12 +125,12 @@ export const PROJECTS_DATA = [
     story:
       "El proyecto incorporó luminarias LED junto con temporizadores para automatizar los períodos de funcionamiento, buscando mejorar la eficiencia del sistema de iluminación y optimizar el consumo energético.",
     gallery: [
-      "/NewGie/img/ILUMINACION06.jpeg",
-      "/NewGie/img/ILUMINACION07.jpeg",
-      "/NewGie/img/ILUMINACION08.jpeg",
-      "/NewGie/img/ILUMINACION09.jpeg",
-      "/NewGie/img/ILUMINACION10.jpeg",
-      "/NewGie/img/ILUMINACION11.jpeg",
+      "/img/ILUMINACION06.jpeg",
+      "/img/ILUMINACION07.jpeg",
+      "/img/ILUMINACION08.jpeg",
+      "/img/ILUMINACION09.jpeg",
+      "/img/ILUMINACION10.jpeg",
+      "/img/ILUMINACION11.jpeg",
     ],
   },
 
@@ -144,7 +141,7 @@ export const PROJECTS_DATA = [
       "Automatización de la iluminación mediante sensores para mejorar eficiencia, seguridad y comodidad.",
     desc: "Colocación de sensores de movimiento y apliques censados.",
     tags: ["Automatización", "Iluminación", "Instalación"],
-    image: "/NewGie/img/ILUMINACION11.jpeg",
+    image: "/img/ILUMINACION11.jpeg",
     details: {
       servicios: "Automatización de iluminación",
       duración: "Según proyecto",
@@ -153,10 +150,7 @@ export const PROJECTS_DATA = [
     },
     story:
       "Se realizó la colocación de sensores de movimiento y apliques censados para automatizar la iluminación en sectores de circulación, permitiendo activar las luminarias únicamente cuando resulta necesario.",
-    gallery: [
-      "/NewGie/img/ILUMINACION11.jpeg",
-      "/NewGie/img/ILUMINACION06.jpeg",
-    ],
+    gallery: ["/img/ILUMINACION11.jpeg", "/img/ILUMINACION06.jpeg"],
   },
 
   {
@@ -166,7 +160,7 @@ export const PROJECTS_DATA = [
       "Renovación de un espacio funcional incorporando nuevas soluciones de iluminación.",
     desc: "Remodelación de baño e instalación de iluminación.",
     tags: ["Remodelación", "Baños", "Iluminación"],
-    image: "/NewGie/img/ILUMINACION12.jpeg",
+    image: "/img/ILUMINACION12.jpeg",
     details: {
       servicios: "Remodelación e iluminación",
       duración: "Según proyecto",
@@ -175,7 +169,7 @@ export const PROJECTS_DATA = [
     },
     story:
       "La intervención combinó trabajos de remodelación con la incorporación de nuevas soluciones de iluminación, buscando mejorar tanto la funcionalidad como la estética del ambiente.",
-    gallery: ["/NewGie/img/ILUMINACION12.jpeg"],
+    gallery: ["/img/ILUMINACION12.jpeg"],
   },
 
   {
@@ -185,7 +179,7 @@ export const PROJECTS_DATA = [
       "Incorporación de señalización luminosa para facilitar la identificación de las vías de evacuación.",
     desc: "Instalación de cartel luminoso de salida de emergencia.",
     tags: ["Seguridad", "Instalación eléctrica", "Emergencias"],
-    image: "/NewGie/img/SALIDA-EMERGENCIA2.jpeg",
+    image: "/img/SALIDA-EMERGENCIA2.jpeg",
     details: {
       servicios: "Instalación de señalización",
       duración: "Según proyecto",
@@ -194,7 +188,7 @@ export const PROJECTS_DATA = [
     },
     story:
       "El trabajo consistió en la instalación de un cartel luminoso de salida de emergencia, incorporando señalización visible para facilitar la orientación y evacuación ante una eventual emergencia.",
-    gallery: ["/NewGie/img/SALIDA-EMERGENCIA.jpeg"],
+    gallery: ["/img/SALIDA-EMERGENCIA.jpeg"],
   },
 
   {
@@ -204,7 +198,7 @@ export const PROJECTS_DATA = [
       "Montaje y conexión de equipamiento destinado a mejorar la funcionalidad y operación de la cocina.",
     desc: "Colocación de horno, anafe y sistemas de extracción.",
     tags: ["Cocinas", "Instalación", "Equipamiento"],
-    image: "/NewGie/img/COCINA01.jpeg",
+    image: "/img/COCINA01.jpeg",
     details: {
       servicios: "Instalación de equipamiento",
       duración: "Según proyecto",
@@ -213,11 +207,7 @@ export const PROJECTS_DATA = [
     },
     story:
       "El proyecto contempló la colocación y puesta en funcionamiento de distintos equipos de cocina, incluyendo horno, anafe y sistemas de extracción, adaptando las instalaciones a las necesidades del espacio.",
-    gallery: [
-      "/NewGie/img/COCINA01.jpeg",
-      "/NewGie/img/COCINA02.jpeg",
-      "/NewGie/img/COCINA03.jpeg",
-    ],
+    gallery: ["/img/COCINA01.jpeg", "/img/COCINA02.jpeg", "/img/COCINA03.jpeg"],
   },
   {
     id: "p11",
@@ -225,7 +215,7 @@ export const PROJECTS_DATA = [
     subtitle: "Proyecto de interiorismo en un departamento de Gran Atlántida.",
     desc: "Colocación de horno, anafe y sistemas de extracción.",
     tags: ["Cocinas", "Instalación", "Equipamiento"],
-    image: "/NewGie/img/interior1.jpeg",
+    image: "/img/interior1.jpeg",
     details: {
       servicios: "Instalación de equipamiento",
       duración: "Según proyecto",
@@ -235,9 +225,9 @@ export const PROJECTS_DATA = [
     story:
       "Se realizó el proyecto, instalación eléctrica, colocación de luminarias, fabricación de muebles a medida, empapelado, mampara y pintura.",
     gallery: [
-      "/NewGie/img/interior1.jpeg",
-      "/NewGie/img/interior2.jpeg",
-      "/NewGie/img/interior3.jpeg",
+      "/img/interior1.jpeg",
+      "/img/interior2.jpeg",
+      "/img/interior3.jpeg",
     ],
   },
 ];
