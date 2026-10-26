@@ -158,30 +158,10 @@ export default function ProjectDetail() {
               </p>
 
               <div className="space-y-6">
-                {[
-                  {
-                    title: "Estudio de fundaciones",
-                    desc: "Cimientos que garantizan estabilidad estructural duradera.",
-                  },
-                  {
-                    title: "Aislación avanzada",
-                    desc: "Sistemas que optimizan el confort y el consumo energético.",
-                  },
-                  {
-                    title: "Terminaciones NewGie",
-                    desc: "Detalles constructivos ejecutados con rigor artesanal.",
-                  },
-                ].map((item, i) => (
-                  <div key={i} className="flex gap-4 group">
-                    <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 group-hover:scale-150 transition-transform"></div>
-                    <div>
-                      <h4 className="font-bold text-slate-800 mb-1">
-                        {item.title}
-                      </h4>
-                      <p className="text-sm text-slate-500">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
+                <p className="text-xl md:text-2xl font-bold text-slate-900 leading-snug">
+                  Logramos plasmar las ideas a la realidad, poniendo atención a
+                  los detalles que hacen la diferencia.
+                </p>
               </div>
             </div>
             <div className="relative">
@@ -210,9 +190,6 @@ export default function ProjectDetail() {
             <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
               Galería del proyecto
             </h2>
-            <p className="text-slate-500 text-sm md:text-base">
-              Imágenes reales del proceso y resultado final.
-            </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
             {project.gallery.map((img, i) => (

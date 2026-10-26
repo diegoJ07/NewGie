@@ -34,7 +34,7 @@ export const PROJECTS_DATA = [
     details: {
       servicios: "Remodelación interior",
       duración: "4 meses",
-      ubicación: "Centro Histórico",
+      ubicación: "Puerto Madero",
       tipo: "Habitación simple",
     },
     story:
@@ -48,13 +48,13 @@ export const PROJECTS_DATA = [
     subtitle:
       "Trabajos de instalaciones eléctricas, iluminación cañerías de detección de incendio, tableros de servicios generales.",
     desc: "Intervención y renovación de espacios destinados a la actividad hotelera.",
-    tags: ["Remodelación", "Hotelería", "Construcción"],
+    tags: ["Remodelación", "Obra Nueva", "Construcción"],
     image: "/img/frente.jpeg",
     details: {
-      servicios: "Remodelación integral",
-      duración: "4 meses",
-      ubicación: "Puerto Madero y San Telmo",
-      tipo: "Establecimiento hotelero",
+      servicios: "Instalaciones eléctricas y de incendio",
+      duración: "1 año",
+      ubicación: "Azopardo y México",
+      tipo: "Departamentos de vivienda y áreas comunes",
     },
     story:
       "El proyecto se enfocó en recuperar y actualizar distintos sectores del establecimiento, combinando la identidad existente con soluciones constructivas adaptadas a las necesidades actuales.",

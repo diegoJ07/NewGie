@@ -202,7 +202,7 @@ export default function Footer() {
               ))}
             </div>
             <p className="text-xs text-slate-500 leading-relaxed">
-              3 de Febrero 14, San Fernando, Buenos Aires.
+              Ciudad Autónoma de Buenos Aires y Gran Buenos Aires. <br />
               <br />
               Atención telefónica: +54 9 2214 38-3512
             </p>

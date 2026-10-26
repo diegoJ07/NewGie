@@ -597,8 +597,8 @@ export default function Home() {
 
             <p className="relative z-10 text-black mb-12 max-w-xl text-lg leading-relaxed text-left mx-auto">
               Tenemos experiencia en lo que hacemos. Cuéntanos qué necesitas y
-              construyamos algo extraordinario en San Fernando y Gran Buenos
-              Aires.
+              construyamos algo extraordinario en Ciudad Autónoma de Buenos
+              Aires y Gran Buenos Aires.
             </p>
 
             <div className="flex flex-wrap justify-center gap-4 relative z-10">
