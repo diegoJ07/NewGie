@@ -26,7 +26,7 @@ export default function Contact() {
     params.append("telefono", (formData.get("telefono") as string) || "");
     params.append(
       "tipo_consulta",
-      (formData.get("tipo_consulta") as string) || "Residencial",
+      (formData.get("tipo_consulta") as string) || "Residencial"
     );
     params.append("mensaje", (formData.get("mensaje") as string) || "");
 
@@ -44,7 +44,7 @@ export default function Contact() {
       formEl.reset();
     } catch {
       setError(
-        "No pudimos enviar tu consulta en este momento. Intenta nuevamente o contáctanos por WhatsApp.",
+        "No pudimos enviar tu consulta en este momento. Intenta nuevamente o contáctanos por WhatsApp."
       );
     } finally {
       setLoading(false);
@@ -98,7 +98,7 @@ export default function Contact() {
                 </a>
 
                 <a
-                  href="https://wa.me/5492214383512"
+                  href="https://wa.me/5491151035503"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-6 p-6 bg-slate-50 rounded-2xl hover:bg-slate-100 transition-colors group"
@@ -110,7 +110,7 @@ export default function Contact() {
                     <p className="text-xs text-slate-400 uppercase font-bold tracking-widest mb-1">
                       Teléfono
                     </p>
-                    <p className="font-bold">+54 9 2214 38-3512</p>
+                    <p className="font-bold">+54 9 11 5103-5503</p>
                   </div>
                 </a>
 

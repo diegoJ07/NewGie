@@ -395,6 +395,22 @@ export default function Home() {
                 alt: "Habitación doble de hotel con instalaciones y acabados modernos",
                 id: "p2",
               },
+              {
+                title: "Instalación de luces colgantes",
+                desc: "Colocación y puesta en funcionamiento de luminarias colgantes.",
+                tags: ["Iluminación", "Instalación", "Mantenimiento"],
+                image: "/img/ILUMINACION04.jpeg",
+                alt: "Colocación y puesta en funcionamiento de luminarias colgantes.",
+                id: "p5",
+              },
+              {
+                title: "Interiorismo en departamento Gran Atlántida",
+                desc: "Colocación de horno, anafe y sistemas de extracción.",
+                tags: ["Cocinas", "Instalación", "Equipamiento"],
+                image: "/img/interior1.jpeg",
+                alt: "Colocación de horno, anafe y sistemas de extracción.",
+                id: "p11",
+              },
             ].map((project, idx) => (
               <div
                 key={idx}

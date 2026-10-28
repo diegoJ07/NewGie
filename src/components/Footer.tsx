@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Instagram, Linkedin, Mail, Loader2, CheckCircle2 } from "lucide-react";
 
-const telefono = "5492214383512";
+const telefono = "5491151035503";
 
 const servicios = [
   {
@@ -204,7 +204,7 @@ export default function Footer() {
             <p className="text-xs text-slate-500 leading-relaxed">
               Ciudad Autónoma de Buenos Aires y Gran Buenos Aires. <br />
               <br />
-              Atención telefónica: +54 9 2214 38-3512
+              Atención telefónica: +54 9 11 5103-5503
             </p>
           </div>
         </div>
